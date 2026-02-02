@@ -1,0 +1,145 @@
+:root {
+  /* Primary Color: "Academic Blue" */
+  --ifm-color-primary: #2e8555; /* Default Green - DELETE THIS LINE */
+  
+  /* NEW COLORS: Deep Royal Blue */
+  --ifm-color-primary: #25c2a0; /* Safe fallback */
+  --ifm-color-primary: #1b6ac6; /* The real primary blue */
+  --ifm-color-primary-dark: #1656a0;
+  --ifm-color-primary-darker: #155197;
+  --ifm-color-primary-darkest: #11427c;
+  --ifm-color-primary-light: #4484d0;
+  --ifm-color-primary-lighter: #538fd4;
+  --ifm-color-primary-lightest: #8bb6e8;
+
+  /* Backgrounds: slightly off-white is easier on the eyes than pure white */
+  --ifm-background-color: #fcfcfc;
+  --ifm-navbar-background-color: #ffffff;
+  
+  /* Make the font cleaner (optional) */
+  --ifm-font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Dark Mode: "Blackboard" Style */
+[data-theme='dark'] {
+  --ifm-color-primary: #6ab0f3;
+  --ifm-background-color: #1a1b1e; /* Deep slate gray instead of pure black */
+}
+
+/* --- Custom Admonition: :::goal --- */
+
+.admonitionHeading_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-Layout-styles-module,
+[class*='admonitionHeading'] {
+  text-transform: none !important;
+}
+
+/* --- Learning Goals Admonition :::goal --- */
+/* We use [class*='alert--goal'] to catch it even if the class name is slightly scrambled */
+div[class*='alert--goal'] {
+  background-color: rgba(27, 106, 198, 0.08) !important;
+  border-left: 5px solid #1b6ac6 !important;
+  color: #1b6ac6 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  padding: 1rem; /* Added padding to ensure it looks like a box */
+}
+
+/* Style the title */
+div[class*='alert--goal'] [class*='admonitionHeading'] {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.5rem;
+}
+
+/* Dark Mode Overrides */
+[data-theme='dark'] div[class*='alert--goal'] {
+  background-color: rgba(106, 176, 243, 0.1) !important;
+  border-left-color: #6ab0f3 !important;
+  color: #6ab0f3 !important;
+}
+
+[data-theme='dark'] div[class*='alert--goal'] [class*='admonitionHeading'] {
+  color: #6ab0f3 !important;
+}
+
+/* 1. Hide the original SVG icon inside the GOAL admonition */
+[class*='theme-admonition-goal'] span[class*='admonitionIcon'] svg {
+  display: none !important;
+}
+
+/* 2. Create the custom Bullseye Icon: All segments at 10% width */
+[class*='theme-admonition-goal'] span[class*='admonitionIcon'] {
+  width: 25px; 
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  /* Vertical alignment fix */
+  vertical-align: middle; 
+  margin-top: -2px; 
+
+  /* Radial gradient: Every band is exactly 10% of the radius */
+  background: radial-gradient(
+    circle, 
+    #444 0% 20%,         /* 1. Dark Central Dot (0-10%) */
+    transparent 25% 40%, /* 2. White space (10-20%) */
+    #444 45% 60%,        /* 3. Dark Ring 1 (20-30%) */
+    transparent 65% 80%, /* 4. White space (30-40%) */
+    #444 85% 90%,        /* 5. Dark Ring 2 (40-50%) */
+    transparent 95% 100% /* 6. Remaining outer margin (50-100%) */
+  );
+  border-radius: 50%;
+}
+
+/* 3. Center the icon container relative to the heading text */
+[class*='theme-admonition-goal'] [class*='admonitionHeading'] {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+/* 4. Dark Mode Support */
+[data-theme='dark'] [class*='theme-admonition-goal'] span[class*='admonitionIcon'] {
+  background: radial-gradient(
+    circle, 
+    #e3e3e3 0% 20%,       /* Central Dot */
+    transparent 20% 40%, 
+    #e3e3e3 40% 60%,      /* Ring 1 */
+    transparent 60% 80%, 
+    #e3e3e3 80% 95%,      /* Ring 2 */
+    transparent 95% 100%
+  );
+}
+
+/* Code for Dyslexia */
+
+/* 2. THE DYSLEXIA FONT RULE */
+/* This changes the font for everything EXCEPT the math. */
+html[data-dyslexia-mode='true'] *:not(.katex, .katex *) {
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+/* 3. ENSURE MATH RETAINS ITS LOOK */
+/* This forces the variables to stay in their scientific serif-italic font */
+.katex, .katex .mathit {
+  font-family: KaTeX_Main, 'Times New Roman', serif !important;
+  font-style: italic !important;
+}
+
+/* 4. DYSLEXIA COLORS */
+html[data-dyslexia-mode='true'] {
+  background-color: #fff4d1 !important;
+}
+
+html[data-dyslexia-mode='true'] body {
+  background-color: #fff4d1 !important;
+}
+
+/* Hide the duplicate MathML rendering */
+/* Ensure the visible version displays correctly */
+.katex-html {
+  display: none !important;
+}
