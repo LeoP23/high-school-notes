@@ -106,10 +106,10 @@ div[class*='alert--goal'] [class*='admonitionHeading'] {
   background: radial-gradient(
     circle, 
     #e3e3e3 0% 20%,       /* Central Dot */
-    transparent 20% 40%, 
-    #e3e3e3 40% 60%,      /* Ring 1 */
-    transparent 60% 80%, 
-    #e3e3e3 80% 95%,      /* Ring 2 */
+    transparent 25% 40%, 
+    #e3e3e3 45% 60%,      /* Ring 1 */
+    transparent 65% 80%, 
+    #e3e3e3 85% 90%,      /* Ring 2 */
     transparent 95% 100%
   );
 }

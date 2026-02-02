@@ -77,7 +77,7 @@ export default function FisicaPage() {
       {/* Hero Section */}
       <div className="hero hero--primary" style={{textAlign: 'center', padding: '4rem 0'}}>
         <div className="container">
-          <h1 className="hero__title">Laboratorio di Fisica</h1>
+          <h1 className="hero__title">Fisica</h1>
           <p className="hero__subtitle">
             Dalla mela di Newton ai buchi neri. Scegli un argomento per iniziare.
           </p>
